@@ -2,14 +2,21 @@
 <html>
 <head>
 	<title>Population Data Map</title>
-
-    <!-- <script type="text/javascript" src='js/weather.js'></script> -->
+    
     <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+    <script type="text/javascript" src='js/Map.js'></script>
     <link rel="stylesheet" href="css/screen.css?v=1.0">
   	<link rel="stylesheet" href="css/stately.css?v=1.0">
     <script type="text/javascript">
 
-		var statesDict = {  "Alabama": "al",
+    $( document ).ready(function() {
+		
+    	//var populationMap = new Map();
+    	Map.init();
+
+	});
+
+		/*var statesDict = {  "Alabama": "al",
 							"Alaska": "ak",
 							"Arkansas": "ar",
 							"Arizona": "az",
@@ -85,19 +92,12 @@
 					statesData.push( stateItem );
 					styleMap( stateItem );
 
-					/*if( statesData.length === statesDict.length ) {
-						styleMap();
-					};*/
-				
-					console.log(/* stateName + " " + stateID + '  pop: ' + */stateItem.population/**0.0000001*/ );
-					//console.log( 'STATES DATA ARRAY LENGTH = ' + statesData.length );
-
 			 	})
 			})
 		};
 
 		getPopulation();
-
+*/
 		function styleMap( item ){
 
 			if( item.population > 19000000 ) {
@@ -147,20 +147,7 @@
 			if( item.population > 400000 && item.population < 500000 ) {
 				$('#wrapper ul li.' + stateItem.id).css("color", '#EDEDED');
 			};
-
-			/*
-			902195
-			783600
-			754844
-			642200
-			626932
-			608827
-			572059
-			493782
-			*/
-
 		};
-
 	  
     </script>
 	<style type="text/css"></style>
