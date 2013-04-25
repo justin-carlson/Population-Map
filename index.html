@@ -67,27 +67,30 @@
 		function getPopulation() {
 
 		  	var url = "http://pipes.yahoo.com/pipes/pipe.run?_id=_Ia89ose3BGMZ6YNlvXiAA&_render=json"
-		  	$.getJSON(url, function(data) {
-			 	$(data).each(function(){
 
-			 		for(var i = 0; i < data.value.items.length; i++) {
-			 			
-			 			var item = data.value.items[i];
-			 			var stateName = item.title;
-			 			var stateID = statesDict[ stateName ];
-			 			var statePopulation = item.Census
+		  	$.getJSON(url, function( data ) {
 
-			 			s = {
-							"id": stateID,
-							"population":data.value.items[i].Census
-						}
+		  		$( data.value.items ).each(function(){
 
-						statesData.push( s );
-						$('#wrapper ul li.' + s.id).css("opacity", s.population*0.0000001);
-						console.log( stateName + " " + stateID + '  pop: ' + s.population*0.0000001 );
-						//console.log( s.population*0.000000001 );
+		  			var item = this;
+		  			var stateName = item.title;
+			 		var stateID = statesDict[ stateName ];
+			 		var statePopulation = item.Census;
 
-			 		}
+			 		stateItem = {
+						"id": stateID,
+						"population":item.Census
+					};
+
+					statesData.push( stateItem );
+					styleMap( stateItem );
+
+					/*if( statesData.length === statesDict.length ) {
+						styleMap();
+					};*/
+				
+					//console.log(/* stateName + " " + stateID + '  pop: ' + */stateItem.population/**0.0000001*/ );
+					//console.log( 'STATES DATA ARRAY LENGTH = ' + statesData.length );
 
 			 	})
 			})
@@ -95,9 +98,41 @@
 
 		getPopulation();
 
-		function styleMap(){
+		function styleMap( item ){
 
-
+			if( item.population > 19000000 ) {
+				$('#wrapper ul li.' + stateItem.id).css("color", '#F50');
+			};
+			if( item.population > 13000000 && item.population < 19000000 ) {
+				$('#wrapper ul li.' + stateItem.id).css("color", '#F71');
+			};
+			if( item.population > 10000000 && item.population < 13000000 ) {
+				$('#wrapper ul li.' + stateItem.id).css("color", '#F92');
+			};
+			if( item.population > 8000000 && item.population < 10000000 ) {
+				$('#wrapper ul li.' + stateItem.id).css("color", '#FA2');
+			};
+			if( item.population > 6000000 && item.population < 8000000 ) {
+				$('#wrapper ul li.' + stateItem.id).css("color", '#FB2');
+			};
+			if( item.population > 5000000 && item.population < 6000000 ) {
+				$('#wrapper ul li.' + stateItem.id).css("color", '#FC2');
+			};
+			if( item.population > 4000000 && item.population < 5000000 ) {
+				$('#wrapper ul li.' + stateItem.id).css("color", '#FD2');
+			};
+			if( item.population > 3000000 && item.population < 4000000 ) {
+				$('#wrapper ul li.' + stateItem.id).css("color", '#FD5');
+			};
+			if( item.population > 2000000 && item.population < 3000000 ) {
+				$('#wrapper ul li.' + stateItem.id).css("color", '#FD6');
+			};
+			if( item.population > 1000000 && item.population < 2000000 ) {
+				$('#wrapper ul li.' + stateItem.id).css("color", '#FE9');
+			};
+			if( item.population < 1000000 ) {
+				$('#wrapper ul li.' + stateItem.id).css("color", '#FFC');
+			};
 		};
 
 	  
@@ -161,6 +196,7 @@
 				<li data-state="wi" class="wi">x</li>
 				<li data-state="wy" class="wy">y</li>	
 			</ul>
+			<div class="stately">E</div>
 		</div>
 	</body>
 
