@@ -89,7 +89,7 @@
 						styleMap();
 					};*/
 				
-					//console.log(/* stateName + " " + stateID + '  pop: ' + */stateItem.population/**0.0000001*/ );
+					console.log(/* stateName + " " + stateID + '  pop: ' + */stateItem.population/**0.0000001*/ );
 					//console.log( 'STATES DATA ARRAY LENGTH = ' + statesData.length );
 
 			 	})
@@ -101,22 +101,22 @@
 		function styleMap( item ){
 
 			if( item.population > 19000000 ) {
-				$('#wrapper ul li.' + stateItem.id).css("color", '#F50');
+				$('#wrapper ul li.' + stateItem.id).css("color", '#F50').css("opacity", ".9" );
 			};
 			if( item.population > 13000000 && item.population < 19000000 ) {
-				$('#wrapper ul li.' + stateItem.id).css("color", '#F71');
+				$('#wrapper ul li.' + stateItem.id).css("color", '#F71').css("opacity", ".8" );
 			};
 			if( item.population > 10000000 && item.population < 13000000 ) {
-				$('#wrapper ul li.' + stateItem.id).css("color", '#F92');
+				$('#wrapper ul li.' + stateItem.id).css("color", '#F92').css("opacity", ".7" );
 			};
 			if( item.population > 8000000 && item.population < 10000000 ) {
-				$('#wrapper ul li.' + stateItem.id).css("color", '#FA2');
+				$('#wrapper ul li.' + stateItem.id).css("color", '#FA2').css("opacity", ".6" );
 			};
 			if( item.population > 6000000 && item.population < 8000000 ) {
-				$('#wrapper ul li.' + stateItem.id).css("color", '#FB2');
+				$('#wrapper ul li.' + stateItem.id).css("color", '#FB2').css("opacity", ".5" );
 			};
 			if( item.population > 5000000 && item.population < 6000000 ) {
-				$('#wrapper ul li.' + stateItem.id).css("color", '#FC2');
+				$('#wrapper ul li.' + stateItem.id).css("color", '#FC2').css("opacity", ".5" );
 			};
 			if( item.population > 4000000 && item.population < 5000000 ) {
 				$('#wrapper ul li.' + stateItem.id).css("color", '#FD2');
@@ -130,9 +130,35 @@
 			if( item.population > 1000000 && item.population < 2000000 ) {
 				$('#wrapper ul li.' + stateItem.id).css("color", '#FE9');
 			};
+			/*
 			if( item.population < 1000000 ) {
-				$('#wrapper ul li.' + stateItem.id).css("color", '#FFC');
+				$('#wrapper ul li.' + stateItem.id).css("color", '#DDC');
 			};
+			*/
+			if( item.population > 700000 && item.population < 1000000 ) {
+				$('#wrapper ul li.' + stateItem.id).css("color", '#D3D3D3');
+			};
+			if( item.population > 600000 && item.population < 700000 ) {
+				$('#wrapper ul li.' + stateItem.id).css("color", '#DCDCDC');
+			};
+			if( item.population > 500000 && item.population < 600000 ) {
+				$('#wrapper ul li.' + stateItem.id).css("color", '#E8E8E8');
+			};
+			if( item.population > 400000 && item.population < 500000 ) {
+				$('#wrapper ul li.' + stateItem.id).css("color", '#EDEDED');
+			};
+
+			/*
+			902195
+			783600
+			754844
+			642200
+			626932
+			608827
+			572059
+			493782
+			*/
+
 		};
 
 	  
