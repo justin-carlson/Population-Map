@@ -3,104 +3,25 @@
 <head>
 	<title>Population Data Map</title>
 
-    <!-- <script type="text/javascript" src='js/weather.js'></script> -->
-    <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
-    <link rel="stylesheet" href="css/screen.css?v=1.0">
+	 <link rel="stylesheet" href="css/screen.css?v=1.0">
   	<link rel="stylesheet" href="css/stately.css?v=1.0">
+    
+    <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/latest/plugins/CSSPlugin.min.js"></script>
+	<script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/latest/easing/EasePack.min.js"></script>
+	<script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenLite.min.js"></script>
+	<script type="text/javascript" src="js/kartograph.min.js"></script>
+    <script type="text/javascript" src='js/Map.js'></script>
+
     <script type="text/javascript">
 
-		var statesDict = {  "Alabama": "al",
-							"Alaska": "ak",
-							"Arkansas": "ar",
-							"Arizona": "az",
-							"California": "ca",
-							"Colorado": "co",
-							"Connecticut": "ct",
-							"Delaware": "de",
-							"District of Columbia": 'dc',  
-							"Florida": "fl",
-							"Georgia": "ga",
-							"Hawaii": "hi",
-							"Idaho": "id",
-							"Illinois": "il",
-							"Indiana": "in",
-							"Iowa": "ia",
-							"Kansas": "ka",
-							"Kentucky": "ky",
-							"Louisiana": "la",
-							"Maine": "me",
-							"Maryland": "md",
-							"Massachusetts": "ma",
-							"Michigan": "mi",
-							"Minnesota": "mn",
-							"Mississippi": "ms",
-							"Missouri": "mo",
-							"Montana": "mt",
-							"Nebraska": "ne",
-							"Nevada": "nv",
-							"New Hampshire": "nh",
-							"New Jersey": "nj",
-							"New Mexico": "nm",
-							"New York": "ny",
-							"North Carolina": "nc",
-							"North Dakota": "nd",
-							"Ohio": "oh",
-							"Oklahoma": "ok",
-							"Oregon": "or",
-							"Pennsylvania": "pa",
-							"Rhode Island": "ri",
-							"South Carolina": "sc",
-							"South Dakota": "sd",
-							"Tennessee": "tn",
-							"Texas": "tx",
-							"Utah": "ut",
-							"Virginia": "va",
-							"Vermont": "vt",
-							"Washington State": "wa",
-							"West Virginia": "wv",
-							"Wisconsin": "wi",
-							"Wyoming": "wy" };
+	    $( document ).ready(function() {
+	    	/*$('li').css('color','#f2f2f2');*/
+	    	Map.init();
+	    	var mapK = Kartograph.map('#wrapper');
 
-		
-		var statesData = [];
+		});
 
-		function getPopulation() {
-
-		  	var url = "http://pipes.yahoo.com/pipes/pipe.run?_id=_Ia89ose3BGMZ6YNlvXiAA&_render=json"
-		  	$.getJSON(url, function(data) {
-			 	$(data).each(function(){
-
-			 		for(var i = 0; i < data.value.items.length; i++) {
-			 			
-			 			var item = data.value.items[i];
-			 			var stateName = item.title;
-			 			var stateID = statesDict[ stateName ];
-			 			var statePopulation = item.Census
-
-			 			s = {
-							"id": stateID,
-							"population":data.value.items[i].Census
-						}
-
-						statesData.push( s );
-						$('#wrapper ul li.' + s.id).css("opacity", s.population*0.0000001);
-						console.log( stateName + " " + stateID + '  pop: ' + s.population*0.0000001 );
-						//console.log( s.population*0.000000001 );
-
-			 		}
-
-			 	})
-			})
-		};
-
-		getPopulation();
-
-		function styleMap(){
-
-
-		};
-
-	  
     </script>
 	<style type="text/css"></style>
 
@@ -111,7 +32,7 @@
 			<ul class="stately" id="plain"> 
 				<li data-state="al" class="al">A</li>
 				<li data-state="ak" class="ak">B</li>
-				<li data-state="ar" class="ar">C</li>						
+				<li data-state="ar" class="ar">C</li>			
 				<li data-state="az" class="az">D</li>
 				<li data-state="ca" class="ca">E</li>
 				<li data-state="co" class="co">F</li>
