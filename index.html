@@ -2,15 +2,24 @@
 <html>
 <head>
 	<title>Population Data Map</title>
+
+	 <link rel="stylesheet" href="css/screen.css?v=1.0">
+  	<link rel="stylesheet" href="css/stately.css?v=1.0">
     
     <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/latest/plugins/CSSPlugin.min.js"></script>
+	<script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/latest/easing/EasePack.min.js"></script>
+	<script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenLite.min.js"></script>
+	<script type="text/javascript" src="js/kartograph.min.js"></script>
     <script type="text/javascript" src='js/Map.js'></script>
-    <link rel="stylesheet" href="css/screen.css?v=1.0">
-  	<link rel="stylesheet" href="css/stately.css?v=1.0">
+
     <script type="text/javascript">
 
 	    $( document ).ready(function() {
+	    	/*$('li').css('color','#f2f2f2');*/
 	    	Map.init();
+	    	var mapK = Kartograph.map('#wrapper');
+
 		});
 
     </script>
@@ -23,7 +32,7 @@
 			<ul class="stately" id="plain"> 
 				<li data-state="al" class="al">A</li>
 				<li data-state="ak" class="ak">B</li>
-				<li data-state="ar" class="ar">C</li>						
+				<li data-state="ar" class="ar">C</li>			
 				<li data-state="az" class="az">D</li>
 				<li data-state="ca" class="ca">E</li>
 				<li data-state="co" class="co">F</li>
@@ -73,7 +82,6 @@
 				<li data-state="wi" class="wi">x</li>
 				<li data-state="wy" class="wy">y</li>	
 			</ul>
-			<div class="stately">E</div>
 		</div>
 	</body>
 
